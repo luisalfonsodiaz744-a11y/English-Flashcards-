@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Flashcards & Vocabulary Trainer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>English Flashcards & Vocabulary Trainer</h1>
+      <p id="statusBanner" class="banner">
+        Master programming and everyday English vocabulary before November 27.
+      </p>
+    </header>
+
+    <section class="card stats-bar">
+      <div class="stat">
+        <span id="masteredCount" class="stat-value">0</span>
+        <span class="stat-label">Mastered</span>
+      </div>
+      <div class="stat">
+        <span id="totalCount" class="stat-value">0</span>
+        <span class="stat-label">Total Cards</span>
+      </div>
+      <div class="stat">
+        <span id="accuracyRate" class="stat-value">0%</span>
+        <span class="stat-label">Quiz Accuracy</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="top-controls">
+        <div class="mode-switch" role="tablist" aria-label="Trainer mode">
+          <button id="studyModeBtn" type="button" class="btn primary active">Study Mode</button>
+          <button id="quizModeBtn" type="button" class="btn secondary">Quiz Mode</button>
+        </div>
+
+        <select id="categoryFilter" aria-label="Filter vocabulary by category">
+          <option value="All">All Categories</option>
+          <option value="Programming">Programming</option>
+          <option value="Software & Tools">Software & Tools</option>
+          <option value="Daily & Work">Daily & Work</option>
+        </select>
+      </div>
+
+      <!-- Study Mode View -->
+      <div id="studySection" class="mode-section">
+        <div class="flashcard" id="flashcard">
+          <div class="card-top">
+            <span id="cardCategory" class="badge">Programming</span>
+            <span id="cardMasteredBadge" class="mastered-pill">Learning</span>
+          </div>
+          <h2 id="cardTerm" class="card-term">Loading...</h2>
+          <p id="cardExample" class="card-example"></p>
+          <div id="cardAnswerBox" class="answer-box hidden">
+            <p id="cardDefinition" class="card-definition"></p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button id="flipBtn" type="button" class="btn secondary">Show Definition</button>
+          <button id="markMasteredBtn" type="button" class="btn success">Mark as Mastered</button>
+          <button id="nextCardBtn" type="button" class="btn primary">Next Card</button>
+        </div>
+      </div>
+
+      <!-- Quiz Mode View -->
+      <div id="quizSection" class="mode-section hidden">
+        <div class="quiz-box">
+          <span id="quizCategory" class="badge">Programming</span>
+          <p class="quiz-prompt">Choose the correct meaning for:</p>
+          <h2 id="quizTerm" class="card-term">Loading...</h2>
+          <div id="quizOptions" class="quiz-options"></div>
+          <p id="quizFeedback" class="feedback" role="live"></p>
+        </div>
+        <div class="card-actions">
+          <button id="nextQuizBtn" type="button" class="btn primary">Next Question</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Custom Card -->
+    <section class="card">
+      <h3>Add Custom Flashcard</h3>
+      <form id="addCardForm" class="add-form" novalidate>
+        <input id="termInput" type="text" placeholder="English term or phrase (e.g., Pull request)" maxlength="60" />
+        <input id="definitionInput" type="text" placeholder="Clear definition in English" maxlength="160" />
+        <input id="exampleInput" type="text" placeholder="Example sentence in English (optional)" maxlength="140" />
+        <select id="categorySelect" aria-label="New card category">
+          <option value="Programming">Programming</option>
+          <option value="Software & Tools">Software & Tools</option>
+          <option value="Daily & Work">Daily & Work</option>
+        </select>
+        <button type="submit" class="btn primary">Add Card</button>
+      </form>
+      <p id="formError" class="error" role="alert"></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
